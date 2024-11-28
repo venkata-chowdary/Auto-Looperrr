@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>YouTube Music Auto Loop</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=League+Gothic&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+            integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <style>
+            body {
+                background-color: #1a1a1a; /* Dark background */
+                color: #fff; /* White text */
+                font-family: "Poppins", sans-serif;
+                padding: 20px;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .container {
+                min-width: 320px;
+                width: 100%;
+                background-color: #2c2c2c;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            }
+
+            .logo {
+                width: 100%;
+                text-align: center;
+                padding: 0;
+                margin: 0;
+                height: fit-content;
+                margin-top: 6px;
+                position: relative;
+            }
+
+            .logo h3 {
+                padding: 0;
+                margin: 0;
+                color: #b0b0b0;
+                font-size: 20px;
+                font-family: 'Arimo';
+                font-style: italic;
+                position: absolute;
+                left: 50%;
+                top: -6px;
+                transform: translateX(-50%);
+            }
+
+
+            .logo h1 {
+                padding: 0;
+                margin: 0;
+                font-family: 'League Gothic';
+                font-style: italic;
+                font-size: 48px;
+                letter-spacing: 2px;
+                color: #59b280 ;
+            }
+
+            .logo h1 span{
+                color: #ff7043;
+            }
+            .songs-list {
+                max-height: 100px;
+                margin: 18px 0;
+                overflow-y: auto;
+                font-size: 16px;
+                font-weight: 450;
+                text-align: center;
+                padding: 0; /* Remove padding from the container */
+            }
+            .songs-list::-webkit-scrollbar {
+                width: 8px; /* Set the width of the scrollbar */
+            }
+
+            .songs-list::-webkit-scrollbar-track {
+                background: #2c2c2c; /* Dark grey for the track */
+                border-radius: 4px; /* Rounded corners for the track */
+            }
+
+            .songs-list::-webkit-scrollbar-thumb {
+                background: #555; /* Grey shade for the thumb */
+                border-radius: 4px; /* Rounded corners for the thumb */
+                border: 2px solid #2c2c2c; /* Border for separation */
+            }
+
+            .songs-list::-webkit-scrollbar-thumb:hover {
+                background: #666; /* Slightly lighter grey on hover */
+            }
+
+            .songs-list p {
+                padding: 8px 12px; /* Add some internal padding for readability */
+                margin: 0; /* Remove margin between list items */
+                font-size: 16px;
+                font-weight: 450;
+                background-color: #333; /* Dark grey */
+                cursor: default;
+                color: #ddd;
+            }
+
+            .songs-list p:hover {
+                background-color: #555; /* Hover effect */
+            }
+
+            .buttons {
+                display: flex;
+                justify-content: space-between;
+                gap: 15px;
+            }
+
+            button {
+                padding: 12px 18px;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                border: none;
+            }
+
+            #add {
+                background-color: #4caf50;
+                color: #fff;
+            }
+
+            #add:hover {
+                background-color: #388e3c;
+            }
+
+            #remove {
+                background-color: #f44336;
+                color: #fff;
+            }
+
+            #remove:hover {
+                background-color: #d32f2f;
+            }
+
+            #clear {
+                background-color: #616161;
+                color: #fff;
+            }
+
+            #clear:hover {
+                background-color: #424242;
+            }
+
+            button i {
+                font-size: 16px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="logo">
+                <h3>Auto</h3>
+                <h1>Loope<span>rrr.</span></h1>
+            </div>
+            <div id="list" class="songs-list">
+                <p>No songs added yet!</p>
+            </div>
+            <div class="buttons">
+                <button id="add">
+                    <i class="fa-solid fa-circle-plus"></i> Add
+                </button>
+                <button id="remove">
+                    <i class="fa-solid fa-circle-minus"></i> Remove
+                </button>
+                <button id="clear">
+                    <i class="fa-solid fa-trash"></i> Clear
+                </button>
+            </div>
+        </div>
+        <script src="popup.js"></script>
+    </body>
+</html>
